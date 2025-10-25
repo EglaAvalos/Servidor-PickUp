@@ -1,12 +1,12 @@
 [
  {
   "id":1,
-  "producto":"leche",
-  "precio":25
+  "producto":"Nesquik",
+  "precio":50
  },
   {
   "id":2,
-  "producto":"Epura 1.5",
-  "precio":15
+  "producto":"Latop",
+  "precio":12000
  }
 ]
