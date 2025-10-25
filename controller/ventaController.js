@@ -1,7 +1,7 @@
 const fs = require('fs');
 const venta = require('../module/venta');
 const dataPath = './data/ventaData.json'
-
+//Comentario
 
 exports.getAllVentas = (req, res) => {
     try {
