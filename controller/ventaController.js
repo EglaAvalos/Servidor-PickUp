@@ -1,5 +1,5 @@
 const fs = require('fs');
-const Student = require('../models/venta');
+const venta = require('../module/venta');
 const dataPath = './data/ventaData.json'
 
 
@@ -9,108 +9,108 @@ exports.getAllVentas = (req, res) => {
         res.json(schoolData);
     } catch(err){
         console.error(err.stack);
-        res.status(500).json({ err: "No se pudieron encontrar los estudiantes."});
+        res.status(500).json({ err: "Venta inecxistente ."});
     }
 }
 
-exports.getStudentById = (req,res) => {
-    const studentId = parseInt(req.params.id);
+exports.getVentaById = (req,res) => {
+    const ventaId = parseInt(req.params.id);
 
-    if (isNaN(studentId)) {
-        return res.status(400).json({ error: "El ID del estudiante no es válido."});
+    if (isNaN(ventaId)) {
+        return res.status(400).json({ error: "ID de venta invalido"});
     }
 
     try {
-        const schoolData = JSON.parse(fs.readFileSync(dataPath));
-        const student = schoolData.find((a) => a.id === studentId);
+        const ventaData = JSON.parse(fs.readFileSync(dataPath));
+        const venta = ventaData.find((a) => a.id === ventaId);
 
-        if(!student) {
-            res.status(404).json({ error: "El estudiante no fue encontrado."})
+        if(!venta) {
+            res.status(404).json({ error: "Venta no encontrada."})
         }
 
-        res.json(student);
+        res.json(venta);
 
     } catch (err) {
         console.error(err.stack);
-        res.status(500).json({ err: "No se pudo obtener al estudiante."});
+        res.status(500).json({ err: "No se pudo obtener la venta."});
     }
 }
 
-exports.addStudent = (req, res) => {
+exports.addVenta = (req, res) => {
     try {
-        const studentData = JSON.parse(fs.readFileSync(dataPath));
-        const newStudent = new Student(Date.now(), req.body.name, req.body.career);
+        const ventaData = JSON.parse(fs.readFileSync(dataPath));
+        const newVenta = new Venta(Date.now(), req.body.producto, req.body.precio);
 
-        studentData.push(newStudent);
+        ventaData.push(newVenta);
 
-        fs.writeFileSync(dataPath, JSON.stringify(studentData, null, 2));
+        fs.writeFileSync(dataPath, JSON.stringify(ventaData, null, 2));
 
-        res.json(newStudent);
+        res.json(newVenta);
 
     } catch (err) {
         console.error(err.stack);
-        res.status(500).json({ err: "No se pudo agregar el estudiante."});
+        res.status(500).json({ err: "No se pudo registrar la venta."});
     }
 }
 
-exports.updateStudent = (req, res) => {
-    const studentId = parseInt(req.params.id);
+exports.updateVenta = (req, res) => {
+    const ventaId = parseInt(req.params.id);
 
-    if (isNaN(studentId)) {
-        return res.status(400).json({ error: "El ID del estudiante no es válido."})
+    if (isNaN(ventaId)) {
+        return res.status(400).json({ error: "El ID de la venta no es valido"})
     }
 
     try {
-        const studentData = JSON.parse(fs.readFileSync(dataPath));
-        const index = studentData.findIndex((a) => a.id == studentId);
+        const ventaData = JSON.parse(fs.readFileSync(dataPath));
+        const index = ventaData.findIndex((a) => a.id == ventaId);
 
         if (index === -1) {
-            return res.status(404).json({error: "El estudiante no fue encontrado."})
+            return res.status(404).json({error: "La venta no fue encontrada."})
         }
 
-        const updateStudent = studentData[index];
+        const updateVenta = ventaData[index];
 
-        if (req.body.name){
-            updateStudent.name = req.body.name;
+        if (req.body.producto){
+            updateVenta.producto = req.body.producto;
         }
-        if (req.body.career){
-            updateStudent.career = req.body.career;
+        if (req.body.precio){
+            updateVenta.precio = req.body.precio;
         }
 
-        fs.writeFileSync(dataPath,JSON.stringify(studentData,null, 2));
+        fs.writeFileSync(dataPath,JSON.stringify(ventaData,null, 2));
 
-        res.json(updateStudent);
+        res.json(updateVenta);
 
     } catch(err){
         console.error(err.stack);
-        res.status(500).json({ err: "No se pudo actualizar el estudiante."});
+        res.status(500).json({ err: "No se pudo actualizar la venta"});
     }
 }
 
-exports.deleteStudent = (req, res) => {
-    const studentId = parseInt(req.params.id);
+exports.deleteVenta = (req, res) => {
+    const ventaId = parseInt(req.params.id);
 
-    if (isNaN(studentId)) {
-        return res.status(400).json({ error: "El ID del estudiante no es válido."})
+    if (isNaN(ventaId)) {
+        return res.status(400).json({ error: "El ID de la venta no existe."})
     }
 
     try {
-        const studentData = JSON.parse(fs.readFileSync(dataPath));
-        const index = studentData.findIndex((a) => a.id == studentId);
+        const ventaData = JSON.parse(fs.readFileSync(dataPath));
+        const index = ventaData.findIndex((a) => a.id == ventaId);
 
         if (index === -1) {
-            return res.status(404).json({error: "El estudiante no fue encontrado."})
+            return res.status(404).json({error: "La venta no fue encontrada."})
         }
 
-        studentData.splice(index, 1);
+        ventaData.splice(index, 1);
 
-        fs.writeFileSync(dataPath, JSON.stringify(studentData,null, 2));
+        fs.writeFileSync(dataPath, JSON.stringify(ventaData,null, 2));
 
-        res.json({ message: "El estudiante ha sido eliminado exitosamente."})
+        res.json({ message: "La venta fue eliminada exitosamente."})
 
     } catch (err) { 
         console.error(err.stack);
-        res.status(500).json({ err: "No se pudo eliminar el estudiante."});
+        res.status(500).json({ err: "No se pudo eliminar la venta"});
     }
 
 }
