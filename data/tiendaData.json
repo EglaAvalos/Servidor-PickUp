@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "nombre": "Tienda Central",
+    "direccion": "Av. Principal 123",
+    "telefono": "555-1234",
+    "horario": "9:00-18:00",
+    "propietario": "Carlos Pérez"
+  },
+  {
+    "id": 2,
+    "nombre": "Sucursal Norte",
+    "direccion": "Calle Norte 45",
+    "telefono": "555-5678",
+    "horario": "10:00-20:00",
+    "propietario": "María López"
+  },
+  {
+    "id": 3,
+    "nombre": "Tienda Central",
+    "direccion": "Av. Principal 123",
+    "telefono": "555-1234",
+    "horario": "9:00-18:00",
+    "propietario": "Carlos Pérez"
+  }
+]

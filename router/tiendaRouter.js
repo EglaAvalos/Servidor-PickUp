@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const studentController = require('../controllers/tiendaController');
+const tiendaController = require('../controller/tiendaController');
 
 
 router.get('/tienda', tiendaController.getAllTiendas);
