@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "nombre": "Mariana Moreno",
+    "correo": "mariana.m@gmail",
+    "rol": "Cliente"
+  },
+  {
+    "id": 2,
+    "nombre": "Icel Avalos",
+    "correo": "icel.a@itson.mx",
+    "rol": "Administrador"
+  },
+  {
+    "id": 3,
+    "nombre": "Ana Lachica",
+    "correo": "ana.l@gmail.com",
+    "rol": "Cliente"
+  },
+  {
+    "id": 4,
+    "nombre": "Leonel Contreras",
+    "correo": "leo.c@itson.mx",
+    "rol": "Vendedor"
+  }
+]
