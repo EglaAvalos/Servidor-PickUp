@@ -1,5 +1,5 @@
 const fs = require('fs');
-const Usuario = require('../module/Usuario'); 
+const Usuario = require('../module/Usuarios'); 
 const dataPath = './data/usuariosData.json';
 
 exports.getAllUsuarios = (req, res) => { 
