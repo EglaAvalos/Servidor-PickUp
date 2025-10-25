@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "nombre": "Televisión",
+    "precio": 4999.99,
+    "stock": 100,
+    "descripcion": "Televisión de 50  pulgadas, full HD",
+    "marca": "samsung"
+  },
+  {
+    "id": 2,
+    "nombre": "X-box series x",
+    "precio": 1666,
+    "stock": 100,
+    "descripcion": "Consola de videojuegos de ultima generación",
+    "marca": "xbox"
+  },
+  {
+    "id": 3,
+    "nombre": "Nesquik",
+    "precio": 50,
+    "stock": 125,
+    "descripcion": "Cereal delisioso",
+    "marca": "Nesquik"
+  },
+  {
+    "id": 4,
+    "nombre": "Latop",
+    "precio": 12000,
+    "stock": 36,
+    "descripcion": "Latop Asus, graficos integrados, amd ryzen 7000 series 5",
+    "marca": "Asus"
+  }
+]
